@@ -3,11 +3,11 @@ from pathlib import Path
 
 sys.path.append(str(Path(__file__).parent.parent))
 
-from app import app
+import app as flask_app_module
 
 
 def test_health_endpoint():
-    client = app.test_client()
+    client = flask_app_module.app.test_client()
 
     response = client.get("/health")
 
@@ -16,7 +16,7 @@ def test_health_endpoint():
 
 
 def test_home_page():
-    client = app.test_client()
+    client = flask_app_module.app.test_client()
 
     response = client.get("/")
 
@@ -24,14 +24,27 @@ def test_home_page():
     assert b"BrightWave Policy Assistant" in response.data
 
 
-def test_chat_endpoint():
-    client = app.test_client()
+def test_chat_endpoint(monkeypatch):
+    def mock_answer_question(question):
+        return {
+            "question": question,
+            "answer": "Employees receive 20 days of PTO per calendar year.",
+            "sources": [
+                {
+                    "title": "Paid Time Off (PTO) Policy",
+                    "source": "pto_policy.md",
+                    "text": "Employees receive 20 days of PTO per calendar year."
+                }
+            ],
+        }
+
+    monkeypatch.setattr(flask_app_module, "answer_question", mock_answer_question)
+
+    client = flask_app_module.app.test_client()
 
     response = client.post(
         "/chat",
-        json={
-            "question": "How many PTO days do employees receive?"
-        }
+        json={"question": "How many PTO days do employees receive?"}
     )
 
     assert response.status_code == 200
