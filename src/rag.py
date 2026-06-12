@@ -4,7 +4,7 @@ from groq import Groq
 
 from ingest import load_policy_documents
 from chunking import chunk_documents
-from retrieval import retrieve_relevant_chunks
+from vector_store import retrieve_vector_chunks
 
 
 load_dotenv()
@@ -55,9 +55,7 @@ User Question:
 
 
 def answer_question(question: str) -> dict:
-    docs = load_policy_documents()
-    chunks = chunk_documents(docs)
-    retrieved_chunks = retrieve_relevant_chunks(question, chunks, top_k=3)
+    retrieved_chunks = retrieve_vector_chunks(question, top_k=3)
     context = build_context(retrieved_chunks)
     answer = generate_answer(question, context)
 
