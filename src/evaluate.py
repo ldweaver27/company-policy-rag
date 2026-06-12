@@ -1,5 +1,6 @@
 import json
 import time
+import numpy as np
 
 from rag import answer_question
 
@@ -21,27 +22,31 @@ def evaluate():
         question = item["question"]
 
         start_time = time.time()
-
         result = answer_question(question)
-
         latency = time.time() - start_time
+
         latencies.append(latency)
 
         results.append({
             "question": question,
             "answer": result["answer"],
+            "expected_answer": item["expected_answer"],
             "expected_source": item["expected_source"],
-            "latency": latency
+            "latency": latency,
         })
 
         print(f"✓ {question}")
         print(f"  Latency: {latency:.2f}s")
 
-    avg_latency = sum(latencies) / len(latencies)
+    avg_latency = float(np.mean(latencies))
+    p50_latency = float(np.percentile(latencies, 50))
+    p95_latency = float(np.percentile(latencies, 95))
 
     print("\n========== SUMMARY ==========")
     print(f"Questions Evaluated: {len(results)}")
     print(f"Average Latency: {avg_latency:.2f} seconds")
+    print(f"p50 Latency: {p50_latency:.2f} seconds")
+    print(f"p95 Latency: {p95_latency:.2f} seconds")
 
     return results
 

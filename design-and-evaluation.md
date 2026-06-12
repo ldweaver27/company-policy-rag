@@ -113,8 +113,12 @@ Latency was measured across all evaluation questions.
 
 Results:
 
-* Number of evaluation questions: 18
-* Average latency: 0.97 seconds per query
+*Results:
+
+- Number of evaluation questions: 18
+- Average latency: 0.66 seconds per query
+- p50 latency: 0.33 seconds
+- p95 latency: 2.35 seconds
 
 Manual review of the 18-question evaluation set found:
 - Groundedness: 18/18 answers were supported by retrieved policy evidence, or 100%.
@@ -136,6 +140,8 @@ Future improvements could include:
 
 ## Design Rationale
 
+Fixed seeds were not required because the chunking process is deterministic and the evaluation set is fixed rather than randomly sampled.
+
 ### Why Markdown Documents?
 
 Markdown is simple, human-readable, and easy to version control.
@@ -156,6 +162,7 @@ Groq provides fast inference, a free tier, and easy integration through a Python
 ### Why Flask?
 
 Flask is lightweight, easy to deploy, and sufficient for the requirements of this project.
+
 
 ---
 
