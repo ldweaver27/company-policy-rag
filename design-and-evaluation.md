@@ -52,13 +52,8 @@ Chunking improves retrieval quality by allowing the system to search smaller sec
 
 #### Retrieval Strategy
 
-A keyword-overlap retrieval approach is used.
+The system generates TF-IDF vector embeddings for document chunks and stores them in a local JSON-based vector store. User questions are embedded using the same vocabulary and retrieved using cosine similarity search. The top 3 most similar chunks are passed to the LLM.
 
-The user question and document chunks are tokenized into lowercase words.
-
-Chunks are scored based on the number of overlapping terms between the user question and each chunk.
-
-The top 3 highest-scoring chunks are selected and passed to the LLM.
 
 #### Generation
 
@@ -121,6 +116,11 @@ Results:
 * Number of evaluation questions: 18
 * Average latency: 0.97 seconds per query
 
+Manual review of the 18-question evaluation set found:
+- Groundedness: 18/18 answers were supported by retrieved policy evidence, or 100%.
+- Citation Accuracy: 18/18 answers cited a policy document containing the supporting information, or 100%.
+- Average Latency: 0.97 seconds.
+
 ### Observations
 
 The retrieval approach performed well because the policy corpus contains highly structured documents and domain-specific terminology.
@@ -143,6 +143,7 @@ Markdown is simple, human-readable, and easy to version control.
 ### Why Heading-Based Chunking?
 
 Policy documents naturally contain sections and subsections. Splitting on headings preserves semantic meaning.
+
 
 ### Why Keyword Retrieval?
 
