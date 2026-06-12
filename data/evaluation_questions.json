@@ -1,0 +1,92 @@
+[
+  {
+    "question": "How many PTO days do employees receive?",
+    "expected_answer": "Employees receive 20 days of PTO per calendar year.",
+    "expected_source": "pto_policy.md"
+  },
+  {
+    "question": "How many sick days do employees receive?",
+    "expected_answer": "Employees receive 10 paid sick days per calendar year.",
+    "expected_source": "pto_policy.md"
+  },
+  {
+    "question": "How many PTO days can employees carry over?",
+    "expected_answer": "Employees may carry over up to 5 unused PTO days.",
+    "expected_source": "pto_policy.md"
+  },
+  {
+    "question": "How many days per week can employees work remotely?",
+    "expected_answer": "Eligible employees may work remotely up to 3 days per week.",
+    "expected_source": "remote_work_policy.md"
+  },
+  {
+    "question": "How long must employees work before becoming eligible for remote work?",
+    "expected_answer": "Employees may work remotely after completing 90 days of employment.",
+    "expected_source": "remote_work_policy.md"
+  },
+  {
+    "question": "How much can employees expense for a monitor?",
+    "expected_answer": "Employees may expense one monitor up to $300 every 3 years.",
+    "expected_source": "expense_policy.md"
+  },
+  {
+    "question": "When must expense reports be submitted?",
+    "expected_answer": "Expense reports must be submitted within 30 days of the purchase date.",
+    "expected_source": "expense_policy.md"
+  },
+  {
+    "question": "How many paid company holidays do employees receive?",
+    "expected_answer": "Employees receive 10 paid company holidays annually.",
+    "expected_source": "holiday_policy.md"
+  },
+  {
+    "question": "How many weeks of paid parental leave are available?",
+    "expected_answer": "Eligible employees receive 12 weeks of fully paid parental leave.",
+    "expected_source": "parental_leave_policy.md"
+  },
+  {
+    "question": "What is the password length requirement?",
+    "expected_answer": "Passwords must contain at least 12 characters.",
+    "expected_source": "information_security_policy.md"
+  },
+  {
+    "question": "Is MFA required?",
+    "expected_answer": "Multi-factor authentication is required for all company systems.",
+    "expected_source": "information_security_policy.md"
+  },
+  {
+    "question": "When must phishing emails be reported?",
+    "expected_answer": "Suspected phishing emails must be reported within 24 hours.",
+    "expected_source": "information_security_policy.md"
+  },
+  {
+    "question": "What airfare requires manager approval?",
+    "expected_answer": "Flights exceeding $600 require manager approval.",
+    "expected_source": "travel_policy.md"
+  },
+  {
+    "question": "What is the hotel reimbursement limit?",
+    "expected_answer": "Hotel accommodations up to $250 per night are reimbursable.",
+    "expected_source": "travel_policy.md"
+  },
+  {
+    "question": "How often can laptops be replaced?",
+    "expected_answer": "Laptops are eligible for replacement every 4 years.",
+    "expected_source": "equipment_policy.md"
+  },
+  {
+    "question": "When must lost equipment be reported?",
+    "expected_answer": "Lost or stolen equipment must be reported to IT within 24 hours.",
+    "expected_source": "equipment_policy.md"
+  },
+  {
+    "question": "How often are performance reviews conducted?",
+    "expected_answer": "Performance reviews are conducted twice per year.",
+    "expected_source": "performance_review_policy.md"
+  },
+  {
+    "question": "How long does a Performance Improvement Plan last?",
+    "expected_answer": "A Performance Improvement Plan lasts 60 days.",
+    "expected_source": "performance_review_policy.md"
+  }
+]
