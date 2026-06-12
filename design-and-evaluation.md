@@ -123,7 +123,7 @@ Results:
 Manual review of the 18-question evaluation set found:
 - Groundedness: 18/18 answers were supported by retrieved policy evidence, or 100%.
 - Citation Accuracy: 18/18 answers cited a policy document containing the supporting information, or 100%.
-- Average Latency: 0.97 seconds.
+
 
 ### Observations
 
@@ -151,9 +151,10 @@ Markdown is simple, human-readable, and easy to version control.
 Policy documents naturally contain sections and subsections. Splitting on headings preserves semantic meaning.
 
 
-### Why Keyword Retrieval?
+### Why TF-IDF Vector Retrieval?
 
-Keyword retrieval is lightweight, easy to explain, and performs well on a small policy corpus.
+The system uses TF-IDF embeddings with cosine similarity because this approach provides lightweight vector-based retrieval without requiring large local neural embedding dependencies. This design was chosen to keep the project reproducible while still implementing embedded chunk retrieval and local vector storage.
+
 
 ### Why Groq?
 
